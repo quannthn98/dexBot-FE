@@ -1,0 +1,93 @@
+<app-navbar></app-navbar>
+<div class="row mx-2 mt-2">
+  <div class="col-2">
+    <app-sidebar></app-sidebar>
+  </div>
+  <div class="col-10">
+    <div class="card">
+      <div class="card-header">
+        <div class="row">
+          <div class="col">
+            <h1>QuanBeo Swap</h1>
+          </div>
+          <div class="col">
+            <label class="form-label" for="privateKey">Private Key</label>
+            <input class="form-control" type="password"
+                   name="privateKey" id="privateKey">
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="row">
+            <div class="col">
+              <label class="form-label" for="network">Network</label>
+              <select class="form-control datalist" type="text"
+                      (change)="getSetupByNetwork()" name="network" id="network" [(ngModel)]="networkId">
+                <option value="0">Select Network</option>
+                <option *ngFor="let n of networkService.networkList" [value]="n.id">{{n.name}}</option>
+              </select>
+
+              <label class="form-label" for="dex">Dex</label>
+              <select class="form-control" type="text"
+                      name="dex" #element id="dex">
+                <option value="0">Select Dex</option>
+                <option *ngFor="let dex of dexService.dexList" [value]="dex.id">{{dex.name}}</option>
+              </select>
+
+              <label class="form-label" for="provider">Provider</label>
+              <select class="form-control datalist" type="text"
+                      name="network" #element id="provider">
+                <option value="0">Select Provider</option>
+                <option *ngFor="let p of providerService.providerList" [value]="p.id">{{p.http}}</option>
+              </select>
+            </div>
+
+            <div class="col">
+              <label class="form-label" for="inputAmount">Amount</label>
+              <input class="form-control" placeholder="Input amount" type="number"
+                     name="inputAmount" id="inputAmount">
+              <label class="form-label" for="input-token">Input Token</label>
+              <input class="form-control datalist" placeholder="Input Token Contract address" type="text"
+                     list="token-list" name="input-token" id="input-token">
+
+              <label class="form-label" for="output-token">Output Token</label>
+              <input class="form-control datalist" placeholder="Paste Token Contract address" type="text"
+                     list="token-list" name="output-token" id="output-token">
+
+              <datalist id="token-list">
+
+              </datalist>
+            </div>
+            <div class="col">
+              <div class="row">
+                <div class="col">
+                  <label class="form-label" for="gasPrice">Gas</label>
+                  <input class="form-control" type="number" value="10" name="gasPrice" id="gasPrice">
+                </div>
+                <div class="col">
+                  <label class="form-label" for="gasLimit">Gas Limit</label>
+                  <input class="form-control" type="number" value="500000" name="gasLimit" id="gasLimit">
+                </div>
+                <div class="col">
+                  <label class="form-label" for="Slip">Slippage</label>
+                  <input class="form-control" type="number" value="10" name="slip" id="slip">
+                </div>
+
+              </div>
+
+
+            </div>
+          </div>
+
+        </form>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-outline-primary" type="button" onclick="startSwap()">Start</button>
+      </div>
+    </div>
+    <div class="col-6" style="max-height: 280px;" id="logs">
+      <p></p>
+    </div>
+  </div>
+</div>
