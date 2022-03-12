@@ -4,9 +4,11 @@
 
 export const environment = {
   production: false,
-  API_URL: 'http://localhost:8080'
-
+  API_URL: 'http://localhost:8080',
+  BOT_AI_URL: 'http://127.0.0.1:3000'
 };
+
+
 
 /*
  * For easier debugging in development mode, you can import the following file

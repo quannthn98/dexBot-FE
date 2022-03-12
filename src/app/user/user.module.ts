@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { UserRoutingModule } from './user-routing.module';
 import { BotSwapComponent } from './bot-swap/bot-swap.component';
 import {SharedModule} from '../shared/shared.module';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -13,7 +13,8 @@ import {FormsModule} from '@angular/forms';
         CommonModule,
         UserRoutingModule,
         SharedModule,
-        FormsModule
+        FormsModule,
+        ReactiveFormsModule
     ]
 })
 export class UserModule { }
